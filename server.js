@@ -41,25 +41,20 @@ app.get("/", function(req, res) {
 
   // Basic route that sends the user first to the reservation Page
 
-<<<<<<< HEAD
   app.get("/reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
-=======
-  app.get("reservation", function(req, res) {
     res.sendFile(path.join(__dirname, "public/reservation.html"));
->>>>>>> a71f464e7d95b38b86804f867ee7c32141cf499d
   });
   
   // Basic route that sends the user first to the waitlist Page
 
-  app.get("waitlist", function(req, res) {
+  app.get("/waitlist", function(req, res) {
     res.sendFile(path.join(__dirname, "public/waitlist.html"));
   });
 
 // Basic route that sends the user first to the json of reserved tables Page
 
-  app.get("/api/reservedtables", function(req, res) {
-    return res.json(reservedtables);
+  app.get("/api/reservations", function(req, res) {
+    return res.json(reservedTables);
   });
 
   // Basic route that sends the user first to the json of waitlist Page
