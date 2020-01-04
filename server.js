@@ -6,6 +6,7 @@ var PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'))
 
 app.listen(PORT, function(){
     console.log("App listening on PORT" + PORT);
@@ -35,19 +36,19 @@ var waitlist = [
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function(req, res) {
-    res.sendFile(path.join(__dirname, "main.html"));
+    res.sendFile(path.join(__dirname, "public/main.html"));
   });
 
   // Basic route that sends the user first to the reservation Page
 
   app.get("reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "reservation.html"));
+    res.sendFile(path.join(__dirname, "public/reservation.html"));
   });
   
   // Basic route that sends the user first to the waitlist Page
 
   app.get("waitlist", function(req, res) {
-    res.sendFile(path.join(__dirname, "waitlist.html"));
+    res.sendFile(path.join(__dirname, "public/waitlist.html"));
   });
 
 // Basic route that sends the user first to the json of reserved tables Page
