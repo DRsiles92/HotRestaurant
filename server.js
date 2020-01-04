@@ -41,13 +41,8 @@ app.get("/", function(req, res) {
 
   // Basic route that sends the user first to the reservation Page
 
-<<<<<<< HEAD
   app.get("/reservation", function(req, res) {
     res.sendFile(path.join(__dirname, "reservation.html"));
-=======
-  app.get("reservation", function(req, res) {
-    res.sendFile(path.join(__dirname, "public/reservation.html"));
->>>>>>> a71f464e7d95b38b86804f867ee7c32141cf499d
   });
   
   // Basic route that sends the user first to the waitlist Page
