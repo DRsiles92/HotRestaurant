@@ -49,7 +49,7 @@
                 </div>
   
                 <div class="form-group">
-                  <label for="force-points">Unique Id</label>
+                  <label for="force-points">ID</label>
                   <input type="text" class="form-control" id="uniqueId">
                 </div>
   
@@ -60,5 +60,26 @@
               </div>
             </div>
           </div>
+
+          <script type="text/javascript">
+            // POST to server
+            $("#add-btn").on("click", function(event) {
+              event.preventDefault();
+              var newReservation = {
+                name: $("#name").val().trim(),
+                phone: $("#phone").val().trim(),
+                email: $("#email").val().trim(),
+                ID: $("#uniqueId").val().trim()
+                
+              };
+              
+                $.post("/api/tables", newReservation)
+                  .then(function(data) {
+                    // console.log("add.html", data);
+                    alert(data);
+                  });
+              // }
+            });
+          </script>
 </body>
 </html>
