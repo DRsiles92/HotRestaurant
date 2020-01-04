@@ -40,7 +40,7 @@ app.get("/", function(req, res) {
 
   // Basic route that sends the user first to the reservation Page
 
-  app.get("reservation", function(req, res) {
+  app.get("/reservation", function(req, res) {
     res.sendFile(path.join(__dirname, "reservation.html"));
   });
   
