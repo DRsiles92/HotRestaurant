@@ -3,6 +3,7 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -30,6 +31,36 @@ var waitlist = [
         phone: "",
     }
 ];
+// Routes
+
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "main.html"));
+  });
+
+  // Basic route that sends the user first to the reservation Page
+
+  app.get("reservation", function(req, res) {
+    res.sendFile(path.join(__dirname, "reservation.html"));
+  });
+  
+  // Basic route that sends the user first to the waitlist Page
+
+  app.get("waitlist", function(req, res) {
+    res.sendFile(path.join(__dirname, "waitlist.html"));
+  });
+
+// Basic route that sends the user first to the json of reserved tables Page
+
+  app.get("/api/reservedtables", function(req, res) {
+    return res.json(reservedtables);
+  });
+
+  // Basic route that sends the user first to the json of waitlist Page
+  
+  app.get("/api/waitlist", function(req, res) {
+    return res.json(waitlist);
+  });
 
 
 //creating new reserved tables
