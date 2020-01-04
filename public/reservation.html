@@ -22,7 +22,43 @@
 
     </div>
 
-    <script src="server.js"></script>
+    <div class="row">
 
+        <div class="col-12">
+  
+          <div class="card">
+            <div class="card-header">
+              <h4>Table Reservations</h4>
+            </div>
+            <div class="card-body">
+              <form method="POST" role="form">
+  
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name">
+                </div>
+  
+                <div class="form-group">
+                  <label for="role">Phone Number</label>
+                  <input type="text" class="form-control" id="phone">
+                </div>
+  
+                <div class="form-group">
+                  <label for="age">Email</label>
+                  <input type="text" class="form-control" id="email">
+                </div>
+  
+                <div class="form-group">
+                  <label for="force-points">Unique Id</label>
+                  <input type="text" class="form-control" id="uniqueId">
+                </div>
+  
+              </form>
+              <br>
+              <div class="text-right">
+                <button type="submit" class="btn btn-primary btn-md" id="add-btn">Submit</button>
+              </div>
+            </div>
+          </div>
 </body>
 </html>
