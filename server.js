@@ -42,11 +42,7 @@ app.get("/", function(req, res) {
   // Basic route that sends the user first to the reservation Page
 
   app.get("/reservation", function(req, res) {
-<<<<<<< HEAD
     res.sendFile(path.join(__dirname, "public/reservation.html"));
-=======
-    res.sendFile(path.join(__dirname, "reservation.html"));
->>>>>>> d6979c7f21d6a0732ef624edda19570ae8c26e4d
   });
   
   // Basic route that sends the user first to the waitlist Page
@@ -69,13 +65,21 @@ app.get("/", function(req, res) {
 
 
 //creating new reserved tables
-app.post("/tables", function(req, res) {
+app.post("/api/tables", function(req, res) {
     var newTable = req.body;
     newTable.routeName = newTable.name.replace(/\s+/g, "").toLowerCase();
 
     console.log(newTable);
-    reservedTables.push(newTable);
-    res.json(newTable);
+    var result;
+    if (reservedTables.length >=5){
+        result = "Waitlist";
+
+    waitlist.push(newTable);}
+    else{
+        result = "Table Reserved";
+        reservedTables.push(newTable);
+    }
+    res.json(result);
 });
 
 //adding names to waitlist
