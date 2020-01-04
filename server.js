@@ -3,8 +3,10 @@ var path = require("path");
 var app = express();
 var PORT = 3000;
 
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static('public'))
 
 app.listen(PORT, function(){
     console.log("App listening on PORT" + PORT);
@@ -30,6 +32,41 @@ var waitlist = [
         phone: "",
     }
 ];
+// Routes
+
+// Basic route that sends the user first to the AJAX Page
+app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "public/main.html"));
+  });
+
+  // Basic route that sends the user first to the reservation Page
+
+<<<<<<< HEAD
+  app.get("/reservation", function(req, res) {
+    res.sendFile(path.join(__dirname, "reservation.html"));
+=======
+  app.get("reservation", function(req, res) {
+    res.sendFile(path.join(__dirname, "public/reservation.html"));
+>>>>>>> a71f464e7d95b38b86804f867ee7c32141cf499d
+  });
+  
+  // Basic route that sends the user first to the waitlist Page
+
+  app.get("waitlist", function(req, res) {
+    res.sendFile(path.join(__dirname, "public/waitlist.html"));
+  });
+
+// Basic route that sends the user first to the json of reserved tables Page
+
+  app.get("/api/reservedtables", function(req, res) {
+    return res.json(reservedtables);
+  });
+
+  // Basic route that sends the user first to the json of waitlist Page
+  
+  app.get("/api/waitlist", function(req, res) {
+    return res.json(waitlist);
+  });
 
 
 //creating new reserved tables
